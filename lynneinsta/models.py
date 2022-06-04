@@ -17,6 +17,9 @@ class Pic(models.Model):
 
     def save_pic(self):
     	self.save()
+    
+    def delete_pic(self):
+        self.delete()
 
     def delete_pic(self):
         self.delete()
@@ -37,6 +40,9 @@ class Pic(models.Model):
 
     class Meta:
     	ordering = ['-pub_date']
+
+    def save_profile(self):
+        self.save()
 
     def save_profile(self):
         self.save()
@@ -83,3 +89,37 @@ class Comment(models.Model):
 
 	def save_comment(self):
 		self.save()
+
+
+class Follow(models.Model):
+	user = models.ForeignKey(Profile,null=True)
+	follower = models.ForeignKey(User,null=True)
+
+	def __int__(self):
+		return self.name
+
+	def save_follower(self):
+		self.save()
+
+	def delete_follower(self):
+		self.save()
+
+class Unfollow(models.Model):
+	user = models.ForeignKey(Profile,null=True)
+	follower = models.ForeignKey(User,null=True)
+
+	def __int__(self):
+		return self.name
+
+class Likes(models.Model):
+	user = models.ForeignKey(Profile,null=True)
+	# pic = models.ForeignKey(Pic,null=True)
+
+	def __int__(self):
+		return self.name
+
+	def unlike(self):
+		self.delete()
+
+	def save_like(self):
+		self.save() 
