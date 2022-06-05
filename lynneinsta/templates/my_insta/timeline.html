@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="{% static 'css/timeline.css'%}"> {% endblock %} {% block content %} {{block.super}}
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
             {% for pic in timeline_pic%}
             <div class="well">
                 <div>
@@ -30,5 +30,5 @@
 </div>
 {% endblock %} {% block scripts %} {{block.super}}
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"></script>
-<script type="text/javascript" src="{%static 'js/timeline.js'%}"></script>
+<!-- <script type="text/javascript" src="{%static 'js/timeline.js'%}"></script> -->
 {% endblock %}
