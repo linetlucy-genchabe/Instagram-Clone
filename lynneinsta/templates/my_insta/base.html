@@ -4,9 +4,8 @@
 
 <head>
     <meta charset="utf-8"> {% if title %}
-    <title> Instagram - {{title}}</title>
-    {% else %}
-    <title> Instagram </title>
+    <title> {{title}} </title>
+
     {% endif %} {% block styles %} {% bootstrap_css %}
 
     <link rel="stylesheet" href="{% static 'css/insta.css' %}"> {% endblock %}
