@@ -18,8 +18,6 @@ class Pic(models.Model):
     def save_pic(self):
     	self.save()
     
-    def delete_pic(self):
-        self.delete()
 
     def delete_pic(self):
         self.delete()
@@ -41,8 +39,6 @@ class Pic(models.Model):
     class Meta:
     	ordering = ['-pub_date']
 
-    def save_profile(self):
-        self.save()
 
     def save_profile(self):
         self.save()
