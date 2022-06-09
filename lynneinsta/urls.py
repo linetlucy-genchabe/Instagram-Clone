@@ -9,6 +9,7 @@ urlpatterns=[
     url(r'^$',views.profile,name = 'profile'),
     url(r'^$',views.timeline,name = 'timeline'),
     url(r'^pic/(\d+)', views.single_pic, name='single_pic'),
+    url(r'^new/post', views.new_post, name='new_post'),
     url(r'^comment/(?P<id>\d+)', views.comment, name='comment'),
     # url(r'^user/(\d+)', views.user_details, name='userDetails'),
     url(r'^profile/', views.profile, name='profile'),

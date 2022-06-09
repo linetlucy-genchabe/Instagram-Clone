@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.decorators import login_required
-from . forms import ProfileUploadForm,CommentForm,ProfileForm
+from . forms import ProfileUploadForm,CommentForm,ProfileForm,NewPostForm
 from django.http  import HttpResponse
 from . models import Pic ,Profile, Likes, Follow, Comment,Unfollow
 from django.conf import settings
@@ -69,6 +69,21 @@ def like(request,pic_id):
 	like +=1
 	save_like()
 	return redirect(timeline)
+
+@login_required(login_url='/login')
+def new_post(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = NewPostForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.user = current_user
+            post.save()
+        return redirect('index')
+
+    else:
+        form =  NewPostForm()
+    return render(request, 'post.html', {"form": form})
 
 def search_results(request):
     if 'pic' in request.GET and request.GET["pic"]:
